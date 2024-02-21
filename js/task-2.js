@@ -1,6 +1,8 @@
-const getUsersWithFriend = (users, friendName) => users.filter(el => el.friends === friendName);
+const getUsersWithFriend = (users, friendName) => {
+ return users.filter(el => el.friends.includes(friendName));
+};
 
- 
+
 
 const users = [
   {
@@ -33,4 +35,26 @@ const users = [
   },
 ];
 
-console.log(getUsersWithFriend(users, 'Briana Decker')); 
+console.log(getUsersWithFriend(users, 'Briana Decker'));
+// [
+//   {
+//     name: "Sharlene Bush",
+//     friends: ["Briana Decker", "Sharron Pace"]
+//   },
+//   {
+//     name: "Sheree Anthony",
+//     friends: ["Goldie Gentry", "Briana Decker"]
+//   }
+// ]
+console.log(getUsersWithFriend(users, 'Goldie Gentry'));
+// [
+//   {
+//     name: "Elma Head",
+//     friends: ["Goldie Gentry", "Aisha Tran"]
+//   },
+//   {
+//     name: "Sheree Anthony",
+//     friends: ["Goldie Gentry", "Briana Decker"]
+//   }
+// ]
+console.log(getUsersWithFriend(users, 'Adrian Cross')); // []
